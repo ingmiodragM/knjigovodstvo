@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Offcanvas navbar template · Bootstrap v5.1</title>
+
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<nav th:fragment="header" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">D.o.o Ortopedija Niš</a>
+		<button class="navbar-toggler p-0 border-0" type="button"
+			id="navbarSideCollapse" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="navbar-collapse offcanvas-collapse"
+			id="navbarsExampleDefault">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-bs-toggle="dropdown" aria-expanded="false">Nalog knjigovodstva</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown02">
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/showNalog">Novi
+									nalog</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displayListaNaloga">Prikaži
+									sve naloge knj.</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown03"
+							data-bs-toggle="dropdown" aria-expanded="false">Magacin</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown02">
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/createMagacinNalog">Novi
+									nalog magacina</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displaytabelasviMagacinNalog">Prikaži
+									sve naloge magacina</a></li>
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/tableajaxtest2">Test Ajax tabela
+								</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown06"
+							data-bs-toggle="dropdown" aria-expanded="false">Artikli</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown02">
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/createMagacinArtikli">Novi
+									artikal</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displaytabelasviMagacinArtikli">Prikaži
+									sve artikle</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown02"
+							data-bs-toggle="dropdown" aria-expanded="false">Konto</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown02">
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/createKonto">Novi
+									konto</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displaytabelasvaKonta">Prikaži
+									sva konta</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown05"
+							data-bs-toggle="dropdown" aria-expanded="false">Pretraga</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown01">
+							<li><a class="dropdown-item" href="http://localhost:8080/knjigovodstvo/tableajaxtest2">Svi
+									Ajax Table</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displayListaNaloga">Prikaži
+									sve naloge knjigovodstva</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displaytabelasvaKonta">Prikaži
+									sva konta</a></li>
+							<li><a class="dropdown-item"
+									href="http://localhost:8080/knjigovodstvo/displaytabelasvaKonta">Prikaži
+									sve naloge magacina</a></li>
+						</ul>
+					</li>
+				</ul>
+
+		</div>
+	</div>
+	</nav>
+
+<div class="nav-scroller bg-body shadow-sm">
+  <nav class="nav nav-underline" aria-label="Secondary navigation">
+    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+    <a class="nav-link" href="#">
+      Friends
+      <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+    </a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Suggestions</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+      <script src="offcanvas.js"></script>
+  </body>
+</html>

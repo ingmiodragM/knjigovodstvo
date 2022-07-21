@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Svi nalozi 2</title>
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+
+	
+	
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width : 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+
+	<!-- Custom styles for this template -->
+	<link href="/css/offcanvas.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+	<style>
+		body {
+
+			padding-top: 70px;
+
+		}
+	</style>
+
+	<div th:replace="common/header :: header">&nbsp;</div>
+
+
+
+	<div class="row">
+
+		<table id="example" class="table table-striped"  data-page-length='50' data-order='[[1, "desc"]]'>
+			<tr>
+				<th>id</th>
+				<th>KontoDug</th>
+				<th>KontoPot</th>
+				<th>Datum</th>
+				<th>DatumValute</th>
+				<th>BrNaloga</th>
+				<th>Opis</th>
+				<th>Sadrzaj</th>
+				<th>Duguje</th>
+				<th>Potrazuje</th>
+				<th>Konto</th>
+				<th>Briši</th>
+				<th>Promeni</th>
+				<th>Štampaj</th>
+			</tr>
+			<tfoot>
+				<tr>
+					<th>id</th>
+					<th>KontoDug</th>
+					<th>KontoPot</th>
+					<th>Datum</th>
+					<th>DatumValute</th>
+					<th>BrNaloga </th>
+					<th>Opis</th>
+					<th>Sadrzaj</th>
+					<th>Duguje</th>
+					<th>Potrazuje</th>
+					<th>Konto</th>
+					<th>Briši</th>
+					<th>Promeni</th>
+					<th>Štampaj</th>
+				</tr>
+			</tfoot>
+
+			<tr th:each="test:${listaNalogas}">
+				<td th:text="${test.id}"></td>
+				<td th:text="${test.konto_dug}"></td>
+				<td th:text="${test.konto_pot}"></td>
+				<td th:text="${#dates.format(test.datum, 'dd-MM-yyyy')}" />
+				</td>
+				<td th:text="${#dates.format(test.datum_valute, 'dd-MM-yyyy')}" />
+				</td>
+				<td th:text="${test.br_naloga}"></td>
+				<td th:text="${test.opis}"></td>
+				<td th:text="${test.sadrzaj}"></td>
+				<td th:text="${test.duguje}"></td>
+				<td th:text="${test.potrazuje}"></td>
+				<td th:text="${test.konto}"></td>
+				<td><a th:href="@{'deleteListaNaloga?id='+${test.id}}">delete</a></td>
+				<td><a th:href="@{'showUpdate?id='+${test.id}}">edit</a></td>
+				<td><a th:href="@{'print?br_naloga='+${test.br_naloga}}">stampa</a></td>
+			</tr>
+
+		</table>
+
+
+    <script language="javascript" type="text/javascript">
+    $(document).ready( function () {
+        $('#example').DataTable();
+    } );
+    </script>
+		<a th:href="'displayListaNaloga'">Prikazi sve</a>
+
+	</div>
+
+
+
+</body>
+
+</html>

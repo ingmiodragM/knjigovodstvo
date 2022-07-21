@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Promeni nalog</title>
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/b-2.2.3/b-print-2.2.3/date-1.1.2/kt-2.7.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/b-2.2.3/b-print-2.2.3/date-1.1.2/kt-2.7.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css" />
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width : 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+
+	<!-- Custom styles for this template -->
+	<link href="/css/offcanvas.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+	<style>
+		body {
+			padding-top: 54px;
+		}
+	</style>
+
+	<div th:replace="common/header :: header">&nbsp;</div>
+
+
+
+	<div class="p-3 mb-2 bg-secondary text-white">
+
+		<form action="updateListaNaloga" method="post">
+			<div class="row mb-3">
+				<label for="id" class="col-sm-2 col-form-label">ID:</label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" id="id" name="id" th:value="${listaNaloga.id}" readonly>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="konto_dug" class="col-sm-2 col-form-label">Konto
+					duguje:</label>
+				<div class="col-sm-3">
+					<select class="form-control" aria-label=".form-select-sm example" id="konto_dug" name="konto_dug">
+ 						<option th:value="${listaNaloga.konto_dug}"th:text="${listaNaloga.konto_dug}"></option>
+ 						<option th:each="option : ${svaKonta}" th:value="${option.name}" th:text="${option.number}"></option>
+
+					</select>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="konto_pot" class="col-sm-2 col-form-label">Konto
+					potrazuje:</label>
+				<div class="col-sm-3">
+					<select class="form-control" aria-label=".form-select-sm example" id="konto_pot" name="konto_pot">
+						<option th:value="${listaNaloga.konto_pot}"th:text="${listaNaloga.konto_pot}"></option>
+						<option th:each="option : ${svaKonta}" th:value="${option.name}" th:text="${option.number}"></option>
+
+					</select>
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<label for="br_naloga" class="col-sm-2 col-form-label">Broj
+					naloga:</label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" id="br_naloga" name="br_naloga"
+						th:value="${listaNaloga.br_naloga}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="opis" class="col-sm-2 col-form-label">Opis:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="opis" name="opis" th:value="${listaNaloga.opis}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="sadrzaj" class="col-sm-2 col-form-label">Sadržaj:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="sadrzaj" name="sadrzaj"
+						th:value="${listaNaloga.sadrzaj}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="duguje" class="col-sm-2 col-form-label">Duguje:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="duguje" name="duguje"
+						th:value="${listaNaloga.duguje}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="potrazuje" class="col-sm-2 col-form-label">Potražuje:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="potrazuje" name="potrazuje"
+						th:value="${listaNaloga.potrazuje}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="konto" class="col-sm-2 col-form-label">Konto:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="konto" name="konto" th:value="${listaNaloga.konto}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="datum" class="col-sm-2 col-form-label">Datum:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="dd-mm-yyyy" id="datum" name="datum"
+						th:value="${#dates.format(listaNaloga.datum, 'dd-MM-yyyy')}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="datum_valute" class="col-sm-2 col-form-label">Datum
+					valute:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" placeholder="dd-mm-yyyy" id="datum_valute"
+						name="datum_valute" th:value="${#dates.format(listaNaloga.datum_valute, 'dd-MM-yyyy')}" />
+				</div>
+			</div>
+			<fieldset class="row mb-3"></fieldset>
+
+			<button type="submit" class="btn btn-primary" value="save">Submit</button>
+
+
+		</form>
+	</div>
+	<b th:text="${msg}"></b>
+
+	</div>
+	<div class="p-3 mb-2 bg-light.bg-gradient">
+
+		<a href="displayListaNaloga">View All</a>
+
+	</div>
+
+<script>
+
+		jQuery("#konto_dug").change(function () {
+			var indeks = jQuery("#konto_dug").find(":selected").index;
+			var indekspot = jQuery("#konto_pot").find(":selected").index;
+			var tekst = jQuery("#konto_dug").find(":selected").text();
+			var optvr = jQuery("#konto_dug").find(":selected").val();
+					jQuery("#opis").val(optvr);
+					if (parseFloat(indeks)!=-1){
+						
+					jQuery("#konto").val(tekst);
+					jQuery("#konto_dug").find(":selected").val(tekst);
+					jQuery("#opis").val(optvr);
+
+					}
+
+
+	//		jQuery("#konto_pot").find(":selected").val("");	
+
+
+		});
+		jQuery("#konto_pot").change(function () {
+			var indeks = jQuery("#konto_pot").find(":selected").index;
+			var tekst = jQuery("#konto_pot").find(":selected").text();
+			var optvr = jQuery("#konto_pot").find(":selected").val();
+			var nulta ="";
+			var indeksdug = jQuery("#konto_dug").find(":selected").val();
+					//	jQuery("#opis").val(data.name);
+					if (parseFloat(indeks)!=-1){
+						
+					jQuery("#konto").val(tekst);
+					jQuery("#opis").val(optvr);
+					jQuery("#konto_pot").find(":selected").val(tekst);
+
+					}
+
+		//	jQuery("#konto_dug").find(":selected").val(nulta);	
+
+
+		}); 
+		
+	</script>
+
+</body>
+
+</html>

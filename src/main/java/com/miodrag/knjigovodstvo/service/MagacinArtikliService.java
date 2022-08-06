@@ -17,5 +17,7 @@ public interface MagacinArtikliService {
 	List<MagacinArtikli> getAllMagacinArtikli();
 	
 	MagacinArtikli findMagacinArtiklibysifra_artikla(String sifra_Artikla);
+	
+	MagacinArtikli findMagacinArtiklibyopis(String opis);
 
 }

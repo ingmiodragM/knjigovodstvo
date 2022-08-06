@@ -16,6 +16,6 @@ public interface MagacinNalogService {
 
 	List<MagacinNalog> getAllMagacinNalog();
 	
-	List<MagacinNalog> findMagacinNalogbybr_naloga(Integer brn);
+	List<MagacinNalog> findMagacinNalogbybr_naloga(int brn);
 
 }

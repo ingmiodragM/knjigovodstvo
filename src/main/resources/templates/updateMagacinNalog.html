@@ -83,7 +83,7 @@ body {
 				</div>
 			</div>
 			<div class="row mb-3">
-				<label for="opis" class="col-sm-2 col-form-label">Opis:</label>
+				<label for="opis" class="col-sm-2 col-form-label">Sifra Artikla:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="sifra_artikla" name="sifra_artikla"
 						th:value="${magacinNalog.sifra_artikla}" />
@@ -92,9 +92,13 @@ body {
 			<div class="row mb-3">
 				<label for="opis" class="col-sm-2 col-form-label">Opis:</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" id="opis" name="opis"
-						th:value="${magacinNalog.opis}" />
+					<select class="form-control" aria-label=".form-select-sm example" id="opis" name="opis">
+ 						<option th:value="${magacinNalog.opis}"th:text="${magacinNalog.opis}"></option>
+ 						<option th:each="option : ${listaMagacinArtiklis}" th:value="${option.opis}" th:text="${option.opis}"></option>
+
+					</select>
 				</div>
+
 			</div>
 			<div class="row mb-3">
 				<label for="duguje" class="col-sm-2 col-form-label">Jedinica mere:</label>
@@ -156,7 +160,30 @@ body {
 
 	</div>
 
+	<script>
 
+		jQuery("#opis").change(function () {
+			var indeks = jQuery("#opis").find(":selected").index;
+			var tekst = jQuery("#opis").find(":selected").text();
+			var optvr = jQuery("#opis").find(":selected").val();
+			
+
+		
+			$.ajax({
+				type: "GET",
+				dataType: 'json',
+				url: "http://localhost:8080/knjigovodstvo/MagacinArtikliOpis/" + tekst,
+				success: function (data) {
+					jQuery("#sifra_artikla").val(data.sifra_artikla);
+					jQuery("#jedinica_mere").val(data.jedinica_mere);
+				}
+			});		
+		
+
+
+
+		});
+	</script>
 
 </body>
 </html>

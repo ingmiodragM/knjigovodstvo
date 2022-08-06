@@ -11,5 +11,8 @@ public interface MagacinArtikliRepository extends JpaRepository<MagacinArtikli, 
 
 	@Query(nativeQuery = true, value ="SELECT * FROM magacin_artikli WHERE sifra_artikla =?1")
 	MagacinArtikli findMagacinArtiklibysifra_artikla(String sifra_Artikla);
+	
+	@Query(nativeQuery = true, value ="SELECT * FROM magacin_artikli WHERE opis =?1")
+	MagacinArtikli findMagacinArtiklibyopis(String opis);
 
 }

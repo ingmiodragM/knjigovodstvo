@@ -51,7 +51,7 @@ public class MagacinNalogServiceImpl implements MagacinNalogService {
 	}
 
 	@Override
-	public List<MagacinNalog> findMagacinNalogbybr_naloga(Integer brn) {
+	public List<MagacinNalog> findMagacinNalogbybr_naloga(int brn) {
 		
 		return (List<MagacinNalog>)repository.findMagacinNalogbybr_naloga(brn);
 	}

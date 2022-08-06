@@ -54,4 +54,12 @@ public class MagacinArtikliServiceImpl implements MagacinArtikliService {
 		return (MagacinArtikli) repository.findMagacinArtiklibysifra_artikla(sifra_Artikla);
 	}
 
+	@Override
+	public MagacinArtikli findMagacinArtiklibyopis(String opis) {
+
+
+		return (MagacinArtikli) repository.findMagacinArtiklibyopis(opis);		
+		
+	}
+
 }

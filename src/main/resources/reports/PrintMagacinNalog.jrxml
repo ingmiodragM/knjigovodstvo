@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrintMagacinNalog" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d0af08f-cc62-41c2-a73c-901dac7da4b6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="479"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="GK"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="br_naloga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[br_naloga]]></fieldDescription>
+	</field>
+	<field name="opis" class="java.lang.String">
+		<fieldDescription><![CDATA[opis]]></fieldDescription>
+	</field>
+	<field name="sifra_artikla" class="java.lang.String">
+		<fieldDescription><![CDATA[sifra_artikla]]></fieldDescription>
+	</field>
+	<field name="datum_naloga" class="java.util.Date">
+		<fieldDescription><![CDATA[datum_naloga]]></fieldDescription>
+	</field>
+	<field name="cena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cena]]></fieldDescription>
+	</field>
+	<field name="jedinica_mere" class="java.lang.String">
+		<fieldDescription><![CDATA[jedinica_mere]]></fieldDescription>
+	</field>
+	<field name="ulaz" class="java.lang.Double">
+		<fieldDescription><![CDATA[ulaz]]></fieldDescription>
+	</field>
+	<field name="izlaz" class="java.lang.Double">
+		<fieldDescription><![CDATA[izlaz]]></fieldDescription>
+	</field>
+	<field name="duguje" class="java.lang.Double">
+		<fieldDescription><![CDATA[duguje]]></fieldDescription>
+	</field>
+	<field name="potrazuje" class="java.lang.Double">
+		<fieldDescription><![CDATA[potrazuje]]></fieldDescription>
+	</field>
+	<variable name="duguje1" class="java.lang.Double" resetType="Column" incrementType="Group" incrementGroup="duguje1" calculation="Sum">
+		<variableExpression><![CDATA[new Double($F{duguje})]]></variableExpression>
+	</variable>
+	<variable name="potrazuje1" class="java.lang.Double" incrementType="Group" incrementGroup="potrazuje1" calculation="Sum">
+		<variableExpression><![CDATA[new Double( $F{potrazuje} )]]></variableExpression>
+	</variable>
+	<group name="duguje1">
+		<groupExpression><![CDATA[$F{duguje}]]></groupExpression>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="potrazuje1">
+		<groupExpression><![CDATA[$F{potrazuje}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="30" uuid="d820b7af-37b4-428b-828f-65182b606eea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c928a504-8166-40d9-931b-91151ef06e60"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="50" height="30" uuid="e9021675-a0a7-433f-b539-93c2df9f82ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c9d6626-b56a-4c70-8ea1-64f87ccda986"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[br_naloga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="59" height="30" uuid="f71e7833-9379-4997-bf01-57101b1189ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13356d61-d88b-400b-b268-b72561cd6520"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[opis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="0" width="50" height="30" uuid="8994c2ee-1e57-412f-a1a9-7923f8a68a0c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6398368a-b254-4791-86b8-1b3c65490cdb"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[sifra_artikla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="0" width="60" height="30" uuid="64a6fbf5-aaf4-4e1c-a827-fbb4d205f5a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff171f8e-d20b-4947-b841-ef5cb562a02d"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[datum_naloga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="0" width="50" height="30" uuid="47ee542b-61b1-40d2-a48b-33041c849a9e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5c74488a-2e52-49cc-8c76-5f3a536e30c7"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[cena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="0" width="50" height="30" uuid="d3837fd2-98a7-472e-86af-9bd63a30923b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b594243-ae7d-48f0-9259-0c31255da254"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[jedinica_mere]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="0" width="50" height="30" uuid="1cb5f4c7-a63f-4178-acc0-a68c4a247141">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86b44820-d2fa-4566-9d13-a5d93d064b2f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[ulaz]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="0" width="50" height="30" uuid="db204f9a-3dff-43ce-95c5-ca1775455aa4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2a5b638-a316-47b7-9f37-59e09e2a9f2f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[izlaz]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="50" height="30" uuid="7f57a703-9125-40a6-a138-e2662e6a9929">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3cf47b2-a8d3-4a64-8c18-a3ca5f4a86ca"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[duguje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="0" width="50" height="30" uuid="60d7ca46-0a61-4075-a79f-4f88e13afe2e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7dcaf4eb-6741-4a9e-96f6-0a055f126414"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[potrazuje]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="30" uuid="e3ad9a58-613c-423f-8022-ef807c098286">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c928a504-8166-40d9-931b-91151ef06e60"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="50" height="30" uuid="66294ebe-fb65-4231-8cd1-476667964637">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c9d6626-b56a-4c70-8ea1-64f87ccda986"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{br_naloga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="59" height="30" uuid="241c074a-999d-4db1-b6c8-3f07b48a4ac3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13356d61-d88b-400b-b268-b72561cd6520"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{opis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="50" height="30" uuid="14e8b00d-8f33-4db3-bf80-fb6b2f3d516c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6398368a-b254-4791-86b8-1b3c65490cdb"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{sifra_artikla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="0" width="60" height="30" uuid="21ffdb3e-3cfa-4a4c-8991-fc906b920c2b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff171f8e-d20b-4947-b841-ef5cb562a02d"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy").format($F{datum_naloga})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="0" width="50" height="30" uuid="267eaaa1-149d-4268-ab97-0bca884ed470">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5c74488a-2e52-49cc-8c76-5f3a536e30c7"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{cena}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="0" width="50" height="30" uuid="e8793d35-7d39-4d38-a80d-4e1effd1a5e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b594243-ae7d-48f0-9259-0c31255da254"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{jedinica_mere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="0" width="50" height="30" uuid="b5592e3c-f2be-4059-8280-b4c20bc27b58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86b44820-d2fa-4566-9d13-a5d93d064b2f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ulaz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="50" height="30" uuid="910b6955-f54c-4dcf-a68d-17fa1270aab7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2a5b638-a316-47b7-9f37-59e09e2a9f2f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{izlaz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="0" width="50" height="30" uuid="c04ba31d-1496-49e4-b7db-d560104b7b91">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3cf47b2-a8d3-4a64-8c18-a3ca5f4a86ca"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{duguje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="0" width="50" height="30" uuid="81532612-2646-4ee1-80e2-e8329b1b0427">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7dcaf4eb-6741-4a9e-96f6-0a055f126414"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{potrazuje}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="449" y="20" width="50" height="30" uuid="0c88b411-6a66-4e44-a719-6f22899171c4"/>
+				<textFieldExpression><![CDATA[$V{duguje1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="20" width="50" height="30" uuid="d7053d17-0c5a-41d3-8833-66f044e3075e"/>
+				<textFieldExpression><![CDATA[$V{potrazuje1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

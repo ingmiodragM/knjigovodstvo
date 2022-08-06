@@ -24,6 +24,13 @@ public class MagacinArtikliRESTController {
 		return repository.findMagacinArtiklibysifra_artikla(sifra_artikla);
 	}
 	
+	
+	@GetMapping("MagacinArtikliOpis/{opis}")
+	public MagacinArtikli getArtikal(@PathVariable("opis") String opis) {
+
+		return repository.findMagacinArtiklibyopis(opis);
+	}
+	
 
 
 	@RequestMapping("/SviMagacinArtikli")

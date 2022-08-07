@@ -104,7 +104,7 @@ public class MagacinNalogControllers {
    
 		
 		List<MagacinNalog> sviMagacinNalog = magacinNalogService.getAllMagacinNalog();
-		modelMap.addAttribute("sviMagacinNalog", sviMagacinNalog);
+		modelMap.addAttribute("listaMagacinNalogs", sviMagacinNalog);
 		
 		return  "displaytabelasviMagacinNalog";
 		
